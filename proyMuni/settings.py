@@ -30,7 +30,7 @@ SECRET_KEY = 'c8*!=3zssgx@@@a_x5&=hz2e^gv=wvxc!%sqbsmdjz%+_$o8x4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['45.79.142.66']
+ALLOWED_HOSTS = ['45.79.142.66','192.168.130.161']
 
 
 # Application definition
@@ -124,7 +124,6 @@ AUTH_USER_MODEL = 'login.User'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
 
 
 cloudinary.config ( 
@@ -132,3 +131,5 @@ cloudinary.config (
   api_key = config("CLOU_KEY") , 
   api_secret = config("api_secret") 
 ) 
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
