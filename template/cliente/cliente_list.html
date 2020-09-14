@@ -18,16 +18,16 @@
 
     <section>
       <div class="container">
-        <H2>LOGO</H2>
+        <img class="img-responsive" src="{% static "cliente/img/banne.jpg" %}">
         <h2>{{dni.nombre}}</h2>
       </div>
       <div class="container">
-        <H4>Consulta de Licencia de Conducir Vehiculos Menores</H4>
+        <H3>Consulta de Licencia de Conducir Vehiculos Menores</H3>
         <div class="">
           <form method="POST" class="row">
             {% csrf_token %}
           <!--<input type="text" name="" class="form-control col-md-3" placeholder="tipo documento">-->
-          <div class="col-md-1"></div>
+          
           <input type="text" name="buscalo" class="form-control col-md-3" placeholder="Ingrese Numero de doc. de identidad"><button type="submit" class="btn btn-success">Consultar</button>
           </form>
         </div>
