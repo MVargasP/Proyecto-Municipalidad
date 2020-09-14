@@ -36,6 +36,7 @@ class Cliente(ModeloBase):
 	apellido = models.CharField('Apellidos', max_length=50)
 	codigo = models.IntegerField('Codigo')
 	licencia = models.CharField('Licencia', max_length=50)
+	fecha_inicio_licencia= models.DateField('Fecha de Inicio',null=	True,blank=	True)
 	fecha_caducidad_licencia= models.DateField('Fecha de Caducidad')
 	photo=CloudinaryField('Foto de Perfil', max_length=150,null=True,blank=True)
 	empresa=models.ForeignKey(Empresa,on_delete=models.CASCADE,null=True,blank=True)

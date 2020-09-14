@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'proyMuni.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE" : "django.db.backends.postgresql_psycopg2",
-        "NAME": 'municipalidaddb',
+        "NAME": 'dbmaster',
         "USER": 'master',
         "PASSWORD": 'solucioneskalel',
         "PORT": '5432',
@@ -104,8 +104,8 @@ DATABASES = {
         "PORT": '5432',
         "HOST": 'localhost',
     }
-}"""
-
+}
+"""
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 

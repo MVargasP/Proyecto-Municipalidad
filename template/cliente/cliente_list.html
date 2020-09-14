@@ -22,13 +22,14 @@
         <h2>{{dni.nombre}}</h2>
       </div>
       <div class="container">
-        <H3>Consulta de Licencia de Conducir Vehiculos Menores</H3>
-        <div class="">
+        <H3 class="titulo">Consulta de Licencia de Conducir Vehiculos Menores</H3>
+        <div class="container">
           <form method="POST" class="row">
             {% csrf_token %}
           <!--<input type="text" name="" class="form-control col-md-3" placeholder="tipo documento">-->
-          
+          <div class="col-12"> <h6>  Numero de Documento de identidad</h6>
           <input type="text" name="buscalo" class="form-control col-md-3" placeholder="Ingrese Numero de doc. de identidad"><button type="submit" class="btn btn-success">Consultar</button>
+          </div>
           </form>
         </div>
       </div>
@@ -43,7 +44,7 @@
                  {% for cliente in dni %}
           <div class="row">
 
-            <div class="col-sm-3 col-md-2 col-lg-2"><!--left col-->
+            <div class="col-sm-3 col-md-2 col-lg-2 col-12"><!--left col-->
               <hr>
               <div class="text-center tab-content">
                 <img src="{{cliente.photo.url}}" class="img-responsive" style="height:320px" alt="avatar">
@@ -57,7 +58,7 @@
                      <form class="form consultaform" action="##" method="post" id="registrationForm">
                      <div class="form-group">
 
-                    <div class="col-xs-6">
+                    <div class="col-md-6 col-lg-6  col-12">
                       <label for="first_name"><h4>Empresa</h4></label>
                      <label type="text" class="form-control fondodate" disabled>{{cliente.nombre}} </label>
                     </div>
@@ -65,7 +66,7 @@
                                         
                   <div class="form-group">
 
-                    <div class="col-xs-6">
+                    <div class="col-md-6 col-lg-6  col-12">
                       <label for="first_name"><h4>Codigo</h4></label>
                       <label type="text" class="form-control" disabled>{{cliente.codigo}} </label>
                     </div>
@@ -73,7 +74,7 @@
  
                 <div class="form-group">
 
-                  <div class="col-xs-6">
+                  <div class="col-md-6 col-lg-6  col-12">
                     <label for="phone"><h4>Nombre</h4></label>
                     <label type="text" class="form-control" disabled>{{cliente.nombre}} {{cliente.apellido}} </label>
 
@@ -81,35 +82,35 @@
                 </div>
 
                 <div class="form-group">
-                  <div class="col-xs-6">
+                  <div class="col-md-6 col-lg-6 col-12">
                    <label for="mobile"><h4>Tipo doc. identidad</h4></label>
                    <label type="text" class="form-control" disabled>{{cliente.documento}} </label>
                  </div>
                </div>
                <div class="form-group">
 
-                <div class="col-xs-6">
+                <div class="col-md-6 col-lg-6  col-12">
                   <label for="email"><h4>Nro. doc. identidad</h4></label>
                   <label type="text" class="form-control" disabled>{{cliente.num_documento}} </label>
                 </div>
               </div>
               <div class="form-group">
 
-                <div class="col-xs-6">
+                <div class="col-md-6 col-lg-6  col-12">
                   <label for="email"><h4>Nro. licencia</h4></label>
                   <label type="text" class="form-control" disabled>{{cliente.licencia}} </label>
                 </div>
               </div>
               <div class="form-group">
 
-                <div class="col-xs-6">
+                <div class="col-md-6 col-lg-6  col-12">
                   <label for="password"><h4>Fecha Inicio</h4></label>
                   <label type="text" class="form-control" disabled> </label>
                 </div>
               </div>
               <div class="form-group">
 
-                <div class="col-xs-6">
+                <div class="col-md-6 col-lg-6  col-12">
                   <label for="password2"><h4>Fecha Final</h4></label>
                   <label type="text" class="form-control" disabled>{{cliente.fecha_caducidad_licencia}} </label>
                 </div>
