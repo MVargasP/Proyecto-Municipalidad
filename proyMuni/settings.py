@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'proyMuni.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE" : "django.db.backends.postgresql_psycopg2",
-        "NAME": 'dbmaster',
+        "NAME": 'dbmaster2',
         "USER": 'master',
         "PASSWORD": 'solucioneskalel',
         "PORT": '5432',
