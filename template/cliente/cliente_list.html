@@ -1,0 +1,131 @@
+ {% load static %}
+ {% load cloudinary %}
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <link rel="stylesheet" type="text/css" href="{% static "cliente/css/cliente.css" %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+    <section>
+      <div class="container">
+        <H2>LOGO</H2>
+        <h2>{{dni.nombre}}</h2>
+      </div>
+      <div class="container">
+        <H4>Consulta de Licencia de Conducir Vehiculos Menores</H4>
+        <div class="">
+          <form method="POST" class="row">
+            {% csrf_token %}
+          <!--<input type="text" name="" class="form-control col-md-3" placeholder="tipo documento">-->
+          <div class="col-md-1"></div>
+          <input type="text" name="buscalo" class="form-control col-md-3" placeholder="Ingrese Numero de doc. de identidad"><button type="submit" class="btn btn-success">Consultar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+   
+    <section>
+      <div class="container">
+        <div class="container bootstrap snippet">
+          {% if dni %}
+
+                 {% for cliente in dni %}
+          <div class="row">
+
+            <div class="col-sm-3 col-md-2 col-lg-2"><!--left col-->
+              <hr>
+              <div class="text-center tab-content">
+                <img src="{{cliente.photo.url}}" class="avatar img-circle img-thumbnail" alt="avatar">
+              </div>
+
+            </div><!--/col-3-->
+            <div class="col-sm-9 col-md-10 col-lg-10">
+
+              <div class="tab-content">
+                
+                     <form class="form consultaform" action="##" method="post" id="registrationForm">
+                     <div class="form-group">
+
+                    <div class="col-xs-6">
+                      <label for="first_name"><h4>Empresa</h4></label>
+                     <label type="text" class="form-control fondodate" disabled>{{cliente.nombre}} </label>
+                    </div>
+                  </div>
+                                        
+                  <div class="form-group">
+
+                    <div class="col-xs-6">
+                      <label for="first_name"><h4>Codigo</h4></label>
+                      <label type="text" class="form-control" disabled>{{cliente.codigo}} </label>
+                    </div>
+                  </div>
+ 
+                <div class="form-group">
+
+                  <div class="col-xs-6">
+                    <label for="phone"><h4>Nombre</h4></label>
+                    <label type="text" class="form-control" disabled>{{cliente.nombre}} {{cliente.apellido}} </label>
+
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-xs-6">
+                   <label for="mobile"><h4>Tipo doc. identidad</h4></label>
+                   <label type="text" class="form-control" disabled>{{cliente.documento}} </label>
+                 </div>
+               </div>
+               <div class="form-group">
+
+                <div class="col-xs-6">
+                  <label for="email"><h4>Nro. doc. identidad</h4></label>
+                  <label type="text" class="form-control" disabled>{{cliente.num_documento}} </label>
+                </div>
+              </div>
+              <div class="form-group">
+
+                <div class="col-xs-6">
+                  <label for="email"><h4>Nro. licencia</h4></label>
+                  <label type="text" class="form-control" disabled>{{cliente.licencia}} </label>
+                </div>
+              </div>
+              <div class="form-group">
+
+                <div class="col-xs-6">
+                  <label for="password"><h4>Fecha Inicio</h4></label>
+                  <label type="text" class="form-control" disabled> </label>
+                </div>
+              </div>
+              <div class="form-group">
+
+                <div class="col-xs-6">
+                  <label for="password2"><h4>Fecha Final</h4></label>
+                  <label type="text" class="form-control" disabled>{{cliente.fecha_caducidad_licencia}} </label>
+                </div>
+              </div>
+
+            </form>
+ {% endfor %}
+                              
+                          
+                  {% endif %}
+          </div><!--/tab-pane-->
+        </div><!--/tab-content-->
+
+      </div><!--/col-9-->
+    </div><!--/row-->
+  </div>  
+  </section>
+
+  </body>

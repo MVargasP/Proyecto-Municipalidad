@@ -31,7 +31,7 @@ SECRET_KEY = 'c8*!=3zssgx@@@a_x5&=hz2e^gv=wvxc!%sqbsmdjz%+_$o8x4'
 DEBUG = True
 
 ALLOWED_HOSTS = ['45.79.142.66','192.168.130.161']
-
+#ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -42,8 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'jquery',
+    "cloudinary",#almacena imagenes
     'apps.login',
+    'apps.cliente',
     "import_export", #opcion de importar archivos
+    "bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -61,7 +65,7 @@ ROOT_URLCONF = 'proyMuni.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,6 +78,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'proyMuni.wsgi.application'
 
 
@@ -85,11 +90,21 @@ DATABASES = {
         "ENGINE" : "django.db.backends.postgresql_psycopg2",
         "NAME": 'municipalidaddb',
         "USER": 'master',
-        "PASSWORD": 'munmaster',
+        "PASSWORD": 'solucioneskalel',
         "PORT": '5432',
         "HOST": 'localhost',
     }
 }
+"""DATABASES = {
+    "default": {
+        "ENGINE" : "django.db.backends.postgresql_psycopg2",
+        "NAME": 'municipalidaddb',
+        "USER": 'postgres',
+        "PASSWORD": '123456',
+        "PORT": '5432',
+        "HOST": 'localhost',
+    }
+}"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -134,5 +149,8 @@ cloudinary.config (
   api_key = config("CLOU_KEY") , 
   api_secret = config("api_secret") 
 ) 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "/static/"
+ 
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)   
