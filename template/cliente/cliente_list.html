@@ -17,13 +17,15 @@
   <body>
 
     <section>
+      <div class="border">
       <div class="container" style="background:#272525;">
-        <img style="float:left;" class="img-responsive" src="{% static "cliente/img/logomuni.png" %}">
-        <h3 style="color:#f3f1f1;">Municipalidad Provincial de Matucana</h3>
+        <img style="float:left;" class="img-responsive text-center" src="{% static "cliente/img/logo.png" %}">
+
+        <h3 class="municipalidad">Municipalidad Provincial de Matucana</h3>
       </div>
      
       <div class="container">
-        <H5 class="titulo">Consulta de Licencia de Conducir Vehiculos Menores</H5>
+        <H5 class="titulo"><strong>Consulta de Licencia de Conducir Vehiculos Menores</strong></H5>
         <div class="container">
           <form method="POST" class="row">
             {% csrf_token %}
@@ -33,6 +35,7 @@
           </div>
           </form>
         </div>
+      </div>
       </div>
     </section>
 
@@ -60,15 +63,15 @@
                      <div class="form-group">
 
                     <div class="col-md-6 col-lg-6  col-12">
-                      <label for="first_name"><h4>Empresa</h4></label>
-                     <label type="text" class="form-control fondodate" disabled>{{cliente.nombre}} </label>
+                      <label for="first_name"><h4>Tipo de Tramite</h4></label>
+                     <label type="text" class="form-control fondodate" disabled>{{cliente.tramite}} </label>
                     </div>
                   </div>
                                         
                   <div class="form-group">
 
                     <div class="col-md-6 col-lg-6  col-12">
-                      <label for="first_name"><h4>Codigo</h4></label>
+                      <label for="first_name"><h4>Num. Carnet</h4></label>
                       <label type="text" class="form-control" disabled>{{cliente.codigo}} </label>
                     </div>
                   </div>
@@ -105,14 +108,14 @@
               <div class="form-group">
 
                 <div class="col-md-6 col-lg-6  col-12">
-                  <label for="password"><h4>Fecha Inicio</h4></label>
-                  <label type="text" class="form-control" disabled> </label>
+                  <label for="password"><h4>Fecha de Inscripción</h4></label>
+                  <label type="text" class="form-control" disabled>{{cliente.fecha_inicio_licencia }}</label>
                 </div>
               </div>
               <div class="form-group">
 
                 <div class="col-md-6 col-lg-6  col-12">
-                  <label for="password2"><h4>Fecha Final</h4></label>
+                  <label for="password2"><h4>Fecha de Vencimiento</h4></label>
                   <label type="text" class="form-control" disabled>{{cliente.fecha_caducidad_licencia}} </label>
                 </div>
               </div>

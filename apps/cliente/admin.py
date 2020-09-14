@@ -43,3 +43,4 @@ class DocumentoAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(Empresa, EmpresaAdmin)
 admin.site.register(Documento, DocumentoAdmin)
+admin.site.register(Tramite)

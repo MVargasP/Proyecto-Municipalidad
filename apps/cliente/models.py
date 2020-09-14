@@ -27,7 +27,12 @@ class Documento(ModeloBase):
 
 	def __str__(self):
 		return self.tipo
-		
+
+class Tramite(ModeloBase):
+	tipo = models.CharField('Tipo de Tramite', max_length=50)
+
+	def __str__(self):
+		return self.tipo		
 
 class Cliente(ModeloBase):
 	documento=models.ForeignKey(Documento,on_delete=models.CASCADE,null=True,blank=True)
@@ -36,10 +41,11 @@ class Cliente(ModeloBase):
 	apellido = models.CharField('Apellidos', max_length=50)
 	codigo = models.IntegerField('Codigo')
 	licencia = models.CharField('Licencia', max_length=50)
-	fecha_inicio_licencia= models.DateField('Fecha de Inicio',null=	True,blank=	True)
-	fecha_caducidad_licencia= models.DateField('Fecha de Caducidad')
+	fecha_inicio_licencia= models.DateField('Fecha de Inscripcion',null=	True,blank=	True)
+	fecha_caducidad_licencia= models.DateField('Fecha de Vencimiento')
 	photo=CloudinaryField('Foto de Perfil', max_length=150,null=True,blank=True)
 	empresa=models.ForeignKey(Empresa,on_delete=models.CASCADE,null=True,blank=True)
+	tramite=models.ForeignKey(Tramite,on_delete=models.CASCADE,null=True,blank=True)
 
 	class Meta:
 		verbose_name='Cliente'
