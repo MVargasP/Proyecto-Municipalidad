@@ -9,10 +9,11 @@ class ConsultaView(ListView):
 		buscar= request.POST['buscalo']
 		dni= Cliente.objects.filter(num_documento__exact=buscar)
 		empresa=Empresa.objects.filter(estado=True)
-		print(dni)
+		
 		contexto = {	
 			'dni':dni,
 			'empresa':empresa,
+			'busqueda':buscar
 		}
 		
 		return render(request,'cliente/cliente_list.html',contexto)

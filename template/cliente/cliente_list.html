@@ -17,11 +17,9 @@
   <body>
 
     <section>
-      <div class="border">
-      <div class="container" style="background:#272525;">
-        <img style="float:left;" class="img-responsive text-center" src="{% static "cliente/img/logo.png" %}">
-
-        <h3 class="municipalidad">Municipalidad Provincial de Matucana</h3>
+      <div class="">
+      <div class="container">
+        <img style="float:left;" class="img-responsive text-center" src="{% static "cliente/img/banner.jpg" %}">
       </div>
      
       <div class="container">
@@ -31,7 +29,7 @@
             {% csrf_token %}
           <!--<input type="text" name="" class="form-control col-md-3" placeholder="tipo documento">-->
           <div class="col-12"> <h6>  Numero de Documento de identidad</h6>
-          <input type="text" name="buscalo" class="form-control col-md-3" placeholder="Ingrese Numero de doc. de identidad"><button type="submit" class="btn btn-success">Consultar</button>
+          <input type="text" name="buscalo" class="form-control col-md-3" placeholder="Ingrese Numero de doc. de identidad" value="{{busqueda}}"><button type="submit" class="btn btn-success">Consultar</button>
           </div>
           </form>
         </div>
@@ -41,21 +39,21 @@
 
    
     <section>
-      <div class="container">
-        <div class="container bootstrap snippet">
+      <div class="container border-top border-bottom">
+        <div class="container">
           {% if dni %}
 
                  {% for cliente in dni %}
           <div class="row">
 
-            <div class="col-sm-3 col-md-2 col-lg-2 col-12"><!--left col-->
+            <div class="col-sm-3 col-md-3 col-lg-3 col-12"><!--left col-->
               <hr>
               <div class="text-center tab-content">
                 <img src="{{cliente.photo.url}}" class="img-responsive" style="height:320px" alt="avatar">
               </div>
 
             </div><!--/col-3-->
-            <div class="col-sm-9 col-md-10 col-lg-10">
+            <div class="col-sm-9 col-md-9 col-lg-9">
 
               <div class="tab-content">
                 
@@ -63,53 +61,53 @@
                      <div class="form-group">
 
                     <div class="col-md-6 col-lg-6  col-12">
-                      <label for="first_name"><h4>Tipo de Tramite</h4></label>
-                     <label type="text" class="form-control fondodate" disabled>{{cliente.tramite}} </label>
+                      <label for="first_name"><h4>Tipo doc. Identidad</h4></label>
+                     <label type="text" class="form-control fondodate" disabled>{{cliente.documento}} </label>
                     </div>
                   </div>
                                         
                   <div class="form-group">
 
                     <div class="col-md-6 col-lg-6  col-12">
-                      <label for="first_name"><h4>Num. Carnet</h4></label>
-                      <label type="text" class="form-control" disabled>{{cliente.codigo}} </label>
+                      <label for="first_name"><h4>Nro. Licencia</h4></label>
+                      <label type="text" class="form-control" disabled>{{cliente.licencia}} </label>
                     </div>
                   </div>
  
                 <div class="form-group">
 
                   <div class="col-md-6 col-lg-6  col-12">
-                    <label for="phone"><h4>Nombre</h4></label>
-                    <label type="text" class="form-control" disabled>{{cliente.nombre}} {{cliente.apellido}} </label>
+                    <label for="phone"><h4>Num. doc Identidad </h4></label>
+                    <label type="text" class="form-control" disabled>{{cliente.num_documento}} </label>
 
                   </div>
                 </div>
 
                 <div class="form-group">
                   <div class="col-md-6 col-lg-6 col-12">
-                   <label for="mobile"><h4>Tipo doc. identidad</h4></label>
-                   <label type="text" class="form-control" disabled>{{cliente.documento}} </label>
+                   <label for="mobile"><h4>Nro. de Expediente</h4></label>
+                   <label type="text" class="form-control" disabled>{{cliente.codigo}} </label>
                  </div>
                </div>
                <div class="form-group">
 
                 <div class="col-md-6 col-lg-6  col-12">
-                  <label for="email"><h4>Nro. doc. identidad</h4></label>
-                  <label type="text" class="form-control" disabled>{{cliente.num_documento}} </label>
+                  <label for="email"><h4>Nombres</h4></label>
+                  <label type="text" class="form-control" disabled>{{cliente.apellido}} {{cliente.nombre}} </label>
                 </div>
               </div>
               <div class="form-group">
 
                 <div class="col-md-6 col-lg-6  col-12">
-                  <label for="email"><h4>Nro. licencia</h4></label>
-                  <label type="text" class="form-control" disabled>{{cliente.licencia}} </label>
+                  <label for="email"><h4>Fecha de Expedición</h4></label>
+                  <label type="text" class="form-control" disabled>{{cliente.fecha_inicio_licencia}} </label>
                 </div>
               </div>
               <div class="form-group">
 
                 <div class="col-md-6 col-lg-6  col-12">
-                  <label for="password"><h4>Fecha de Inscripción</h4></label>
-                  <label type="text" class="form-control" disabled>{{cliente.fecha_inicio_licencia }}</label>
+                  <label for="password"><h4>Tipo de Servicio</h4></label>
+                  <label type="text" class="form-control" disabled>{{cliente.tramite }}</label>
                 </div>
               </div>
               <div class="form-group">
@@ -132,5 +130,9 @@
     </div><!--/row-->
   </div>  
   </section>
-
+  <section>
+    <div class="container">
+        <img style="float:left;" class="img-responsive text-center" src="{% static "cliente/img/footer.jpg" %}">
+      </div>
+  </section>
   </body>

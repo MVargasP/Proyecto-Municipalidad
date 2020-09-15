@@ -29,7 +29,7 @@ class Documento(ModeloBase):
 		return self.tipo
 
 class Tramite(ModeloBase):
-	tipo = models.CharField('Tipo de Tramite', max_length=50)
+	tipo = models.CharField('Tipo de Servicio', max_length=50)
 
 	def __str__(self):
 		return self.tipo		
@@ -39,10 +39,10 @@ class Cliente(ModeloBase):
 	num_documento = models.CharField('DNI/CEDULA', max_length=10, primary_key=True)
 	nombre = models.CharField('Nombres', max_length=50)
 	apellido = models.CharField('Apellidos', max_length=50)
-	codigo = models.IntegerField('Codigo')
+	codigo = models.IntegerField('Expediente')
 	licencia = models.CharField('Licencia', max_length=50)
-	fecha_inicio_licencia= models.DateField('Fecha de Inscripcion',null=	True,blank=	True)
-	fecha_caducidad_licencia= models.DateField('Fecha de Vencimiento')
+	fecha_inicio_licencia= models.DateField('Fecha de Expedición',null=	True,blank=	True)
+	fecha_caducidad_licencia= models.DateField('Fecha de Revalidación')
 	photo=CloudinaryField('Foto de Perfil', max_length=150,null=True,blank=True)
 	empresa=models.ForeignKey(Empresa,on_delete=models.CASCADE,null=True,blank=True)
 	tramite=models.ForeignKey(Tramite,on_delete=models.CASCADE,null=True,blank=True)
