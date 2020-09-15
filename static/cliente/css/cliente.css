@@ -5,7 +5,7 @@
 @media screen and (min-width: 601px) {
   .titulo {
     font-size: 20px;
-
+    width: 100%;
 
 	}
   .municipalidad{
@@ -23,5 +23,10 @@
    	margin-top: 5px;
    	color:#f3f1f1;
    	font-size: 18px;
+   }
+   .perfil{
+    width: 210px;
+    margin-right: auto;
+    margin-left: auto;
    }
 }
