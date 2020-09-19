@@ -6,11 +6,13 @@ from import_export import resources,fields,widgets
 
 
 class ClienteResource(resources.ModelResource):
-   
+  
     class Meta:
         model = Cliente
-        fields=('nombre','apellido','num_documento','codigo','licencia','fecha_caducidad_licencia') # campos que se import-export
+        fields=('documento','num_documento','nombre','apellido','codigo','licencia','fecha_inicio_licencia','fecha_caducidad_licencia','empresa','tramite') # campos que se import-export
      
+        import_id_fields = ['num_documento'] # import busca un id por default especificar que campo utilizare como id si cambio el pk
+
 class ClienteAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 	list_display = ('nombre','apellido','num_documento','codigo','licencia','fecha_caducidad_licencia') # campos que se mostraran
 	search_fields = ['nombre','apellido','num_documento','codigo','licencia','fecha_caducidad_licencia'] # busqueda de campos
