@@ -25,13 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c8*!=3zssgx@@@a_x5&=hz2e^gv=wvxc!%sqbsmdjz%+_$o8x4'
-
+SECRET_KEY = config('api_secret')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['45.79.142.66','192.168.130.161']
-#ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['45.79.142.66','192.168.130.161']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -84,6 +83,8 @@ WSGI_APPLICATION = 'proyMuni.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+"""
 DATABASES = {
     "default": {
         "ENGINE" : "django.db.backends.postgresql_psycopg2",
@@ -93,17 +94,14 @@ DATABASES = {
         "PORT": '5432',
         "HOST": 'localhost',
     }
-}
-"""DATABASES = {
-    "default": {
-        "ENGINE" : "django.db.backends.postgresql_psycopg2",
-        "NAME": 'municipalidaddb',
-        "USER": 'postgres',
-        "PASSWORD": '123456',
-        "PORT": '5432',
-        "HOST": 'localhost',
-    }
 }"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -142,7 +140,6 @@ AUTH_USER_MODEL = 'login.User'
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 
-
 cloudinary.config ( 
   cloud_name = config("cloud_name") , 
   api_key = config("CLOU_KEY") , 
@@ -153,3 +150,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
  
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)   
+
+MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, '/home/master/multimedia/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

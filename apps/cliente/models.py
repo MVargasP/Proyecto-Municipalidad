@@ -23,19 +23,19 @@ class Empresa(ModeloBase):
 		return self.razon_social
 
 class Documento(ModeloBase):
-	tipo = models.CharField('Tipo de Documento', max_length=50)
+	tipo_documento = models.CharField('Tipo de Documento', max_length=50,primary_key=True)
 
 	def __str__(self):
 		return self.tipo
 
 class Tramite(ModeloBase):
-	tipo = models.CharField('Tipo de Servicio', max_length=50)
+	tipo_tramite = models.CharField('Tipo de Servicio', max_length=50,primary_key=True)
 
 	def __str__(self):
 		return self.tipo		
 
 class Cliente(ModeloBase):
-	documento=models.ForeignKey(Documento,on_delete=models.CASCADE,null=True,blank=True)
+	tipo_documento=models.ForeignKey(Documento,on_delete=models.CASCADE,null=True,blank=True)
 	num_documento = models.CharField('DNI/CEDULA', max_length=10, primary_key=True)
 	nombre = models.CharField('Nombres', max_length=50)
 	apellido = models.CharField('Apellidos', max_length=50)
@@ -43,9 +43,9 @@ class Cliente(ModeloBase):
 	licencia = models.CharField('Licencia', max_length=50)
 	fecha_inicio_licencia= models.DateField('Fecha de Expedición',null=	True,blank=	True)
 	fecha_caducidad_licencia= models.DateField('Fecha de Revalidación')
-	photo=CloudinaryField('Foto de Perfil', max_length=150,null=True,blank=True)
+	photo=models.ImageField('Foto',null=True,blank=True,upload_to='fotos/')
 	empresa=models.ForeignKey(Empresa,on_delete=models.CASCADE,null=True,blank=True)
-	tramite=models.ForeignKey(Tramite,on_delete=models.CASCADE,null=True,blank=True)
+	tipo_tramite=models.ForeignKey(Tramite,on_delete=models.CASCADE,null=True,blank=True)
 
 	class Meta:
 		verbose_name='Cliente'
